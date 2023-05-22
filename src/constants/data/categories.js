@@ -1,0 +1,27 @@
+export const CATEGORIES = [
+  {
+    id: 1,
+    name: "Remeras | Camisetas",
+    color: "#f5ebe0",
+  },
+  {
+    id: 2,
+    name: "Pantalones | Bermudas",
+    color: "#d5bdaf",
+  },
+  {
+    id: 3,
+    name: "Camisas",
+    color: "#e3d5ca",
+  },
+  {
+    id: 4,
+    name: "Prenda Superior",
+    color: "#d6ccc2",
+  },
+  {
+    id: 5,
+    name: "Zapatos | Zapatillas",
+    color: "#edede9",
+  },
+];

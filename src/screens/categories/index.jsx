@@ -1,38 +1,27 @@
-import { useState } from "react";
-import { Button, Text, View } from "react-native";
+import React from "react";
+import { FlatList, SafeAreaView } from "react-native";
 
 import { styles } from "./styles";
-
-const categories = [
-  { id: 1, category: "Pantalones | Bermudas" },
-  { id: 2, category: "Remeras | Camisetas" },
-  { id: 3, category: "Prendas Superiores" },
-  { id: 4, category: "Camisas" },
-  { id: 5, category: "Zapatos | Zapatillas" },
-];
+import CategoryItem from "../../components/category-item";
+import { CATEGORIES } from "../../constants";
 
 const Categories = ({ navigation }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const handleClickCategory = (category) => {
-    setSelectedCategory(category);
-    navigation.navigate("Products", { category });
+  const onSelected = (item) => {
+    navigation.navigate("Products", {
+      categoryId: item.id,
+      name: item.name,
+      color: item.color,
+    });
   };
 
+  const renderItem = ({ item }) => <CategoryItem item={item} onSelected={onSelected} />;
+
+  const keyExtractor = (item) => item.id.toString();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Categorias</Text>
-      <View style={styles.categories}>
-        {categories.map((category) => (
-          <Button
-            key={category.id}
-            title={category.category}
-            onPress={handleClickCategory}
-            color={selectedCategory && selectedCategory.id === category.id ? "red" : "blue"}
-          />
-        ))}
-      </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList data={CATEGORIES} renderItem={renderItem} keyExtractor={keyExtractor} />
+    </SafeAreaView>
   );
 };
+
 export default Categories;
