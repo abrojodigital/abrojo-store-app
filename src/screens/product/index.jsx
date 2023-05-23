@@ -1,5 +1,5 @@
 import { Picker } from "@react-native-picker/picker";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 
 import { styles } from "./styles";
@@ -27,7 +27,7 @@ const Product = ({ route }) => {
       <Text style={styles.price}>USD {product.price}</Text>
       <Picker selectedValue={selectedSize} onValueChange={handleSizeChange} style={styles.picker}>
         <Picker.Item label="Select Size" value={null} />
-        {renderSizeOptions}
+        {renderSizeOptions()}
       </Picker>
     </View>
   );

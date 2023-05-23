@@ -31,13 +31,7 @@ export const styles = StyleSheet.create({
     height: 260,
   },
   picker: {
-    backgroundColor: "#FFFFFF",
-    marginTop: 10,
-    marginBottom: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "#CCCCCC",
+    height: 40,
+    width: "100%",
   },
 });
