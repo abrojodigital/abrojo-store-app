@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     height: 260,
   },
   picker: {
-    height: 30,
+    height: 40,
     width: "100%",
   },
   containerPicker: {
