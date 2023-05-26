@@ -26,7 +26,7 @@ export const CART = [
     description: "Cazadora tejido estructura color Azul. Manga larga acabada en puño elástico.",
     size: "XL",
     price: 65,
-    quantity: 2,
+    quantity: 1,
   },
   {
     id: 4,
