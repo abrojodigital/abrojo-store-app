@@ -1,5 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "./styles";
 import { COLORS } from "../../constants";
@@ -12,6 +12,7 @@ const CartItem = ({ item, onRemove }) => {
       </View>
       <View style={styles.bodyContainer}>
         <View style={styles.content}>
+          <Text style={styles.quantity}>size: {item.size}</Text>
           <Text style={styles.quantity}>qty: {item.quantity}</Text>
           <Text style={styles.price}>USD {item.price}</Text>
         </View>
