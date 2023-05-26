@@ -1,21 +1,15 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { Button, Image, Text, TextInput, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
 
 import { styles } from "./styles";
 import { PRODUCTS } from "../../constants";
-import { addToCart } from "../../store/actions";
 
-const Product = () => {
-  const dispatch = useDispatch();
+const Product = ({ route }) => {
+  const { productId } = route.params;
+  const product = PRODUCTS.find((product) => product.id === productId);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const product = useSelector((state) => state.products.selected);
-
-  const onAddToCart = () => {
-    dispatch(addToCart(product));
-  };
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
@@ -28,6 +22,12 @@ const Product = () => {
   const renderSizeOptions = () => {
     const sizes = Object.keys(product.stockBySize);
     return sizes.map((size) => <Picker.Item key={size} label={size} value={size} />);
+  };
+
+  const handleAddToCart = () => {
+    // Aquí va implementada la lógica para agregar el producto al carrito
+    console.log("Talle seleccionado:", selectedSize);
+    console.log("Cantidad seleccionada:", quantity);
   };
 
   return (
@@ -51,7 +51,7 @@ const Product = () => {
           keyboardType="numeric"
         />
       </View>
-      <Button title="Add to Cart" onPress={addToCart} />
+      <Button title="Add to Cart" onPress={handleAddToCart} />
     </View>
   );
 };
