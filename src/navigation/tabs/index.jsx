@@ -1,7 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Animated } from "react-native";
+import { useSelector } from "react-redux";
 
 import { COLORS } from "../../constants";
 import CartNavigator from "../cart";
@@ -11,6 +12,7 @@ import ShopNavigator from "../shop";
 const BottomTab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
+  const cart = useSelector((state) => state.cart.data);
   const animatedValue = useRef(new Animated.Value(0)).current;
   const tabIconAnimation = () => {
     Animated.timing(animatedValue, {
@@ -75,6 +77,13 @@ const TabsNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons name={focused ? "cart" : "cart-outline"} size={size} color={color} />
           ),
+          tabBarBadge: cart.length,
+          tabBarBadgeStyle: {
+            backgroundColor: COLORS.secondary,
+            color: COLORS.text,
+            fontFamily: "Inter-bold",
+            fontSize: 11,
+          },
         }}
       />
     </BottomTab.Navigator>

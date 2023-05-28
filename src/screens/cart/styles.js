@@ -17,6 +17,23 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
+  buttonDisabled: {
+    backgroundColor: COLORS.lightGray,
+    borderRadius: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
   buttonConfirm: {
     backgroundColor: COLORS.secondary,
     borderRadius: 5,
@@ -32,7 +49,6 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
   },
   buttonConfirmText: {
