@@ -81,7 +81,7 @@ const TabsNavigator = () => {
           tabBarBadgeStyle: {
             backgroundColor: COLORS.secondary,
             color: COLORS.text,
-            fontFamily: "Inter-bold",
+            fontFamily: "Inter-Bold",
             fontSize: 11,
           },
         }}
