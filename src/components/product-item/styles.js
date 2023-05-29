@@ -8,10 +8,11 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 20,
     marginVertical: 10,
-    height: 120,
+    height: 160,
   },
   containerTouchable: {
     flex: 1,
+    flexDirection: "row",
     backgroundColor: COLORS.primary,
     shadowColor: "#000",
     shadowOffset: {
@@ -36,9 +37,8 @@ export const styles = StyleSheet.create({
     paddingBottom: 5,
     textAlign: "center",
   },
-  weight: {
-    fontSize: 12,
-    fontFamily: "Inter-Regular",
-    textAlign: "center",
+  image: {
+    width: "100%",
+    height: 80,
   },
 });

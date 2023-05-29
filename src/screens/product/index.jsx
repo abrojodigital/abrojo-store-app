@@ -1,6 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
-import { Button, Image, Text, TextInput, View } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { styles } from "./styles";
