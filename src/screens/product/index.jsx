@@ -4,25 +4,29 @@ import { Button, Image, Text, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { styles } from "./styles";
-import { PRODUCTS } from "../../constants";
 import { addToCart } from "../../store/actions";
 
 const Product = () => {
   const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState(null);
-  const [quantity, setQuantity] = useState(1);
   const product = useSelector((state) => state.products.selected);
 
   const onAddToCart = () => {
-    dispatch(addToCart(product));
+    dispatch(
+      addToCart({
+        id: product.id,
+        category: product.category,
+        name: product.name,
+        description: product.description,
+        image: product.image,
+        price: product.price,
+        size: selectedSize,
+      })
+    );
   };
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
-  };
-
-  const handleQuantityChange = (value) => {
-    setQuantity(value);
   };
 
   const renderSizeOptions = () => {
@@ -42,16 +46,7 @@ const Product = () => {
           {renderSizeOptions()}
         </Picker>
       </View>
-      <View style={styles.quantityContainer}>
-        <Text style={styles.quantityLabel}>Quantity:</Text>
-        <TextInput
-          style={styles.quantityInput}
-          value={quantity.toString()}
-          onChangeText={handleQuantityChange}
-          keyboardType="numeric"
-        />
-      </View>
-      <Button title="Add to Cart" onPress={addToCart} />
+      <Button title="Add to Cart" onPress={onAddToCart} />
     </View>
   );
 };

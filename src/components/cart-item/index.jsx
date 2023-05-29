@@ -8,7 +8,7 @@ const CartItem = ({ item, onRemove }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.header}>{item.title}</Text>
+        <Text style={styles.header}>{item.name}</Text>
       </View>
       <View style={styles.bodyContainer}>
         <View style={styles.content}>

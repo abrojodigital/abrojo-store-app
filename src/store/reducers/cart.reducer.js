@@ -1,6 +1,6 @@
-/* eslint-disable no-case-declarations */
 import { sumTotal } from "../../utils";
 import { cartTypes } from "../types";
+/* eslint-disable no-case-declarations */
 
 const { ADD_TO_CART, CONFIRM_ORDER, REMOVE_FROM_CART } = cartTypes;
 
@@ -13,9 +13,9 @@ const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       let updatedCart = [];
-      if (state.data.find((item) => item.id === action.item.id)) {
+      if (state.data.find((item) => item.id === action.item.id && item.size === action.item.size)) {
         updatedCart = state.data.map((item) => {
-          if (item.id === action.item.id) item.quantity += 1;
+          if (item.id === action.item.id && item.size === action.item.size) item.quantity += 1;
           return item;
         });
       } else {
